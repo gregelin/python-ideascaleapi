@@ -1,15 +1,18 @@
 from distutils.core import setup
 from sunlightapi import __version__,__license__,__doc__
 
+license_text = open('LICENSE').read()
+long_description = open('README.rst').read()
+
 setup(name="python-sunlightapi",
       version=__version__,
       py_modules=["sunlightapi"],
       description="Libraries for interacting with the Sunlight Labs API",
       author="James Turk",
       author_email = "jturk@sunlightfoundation.com",
-      license=__license__,
+      license=license_text,
       url="http://github.com/sunlightlabs/python-sunlightapi/",
-      long_description=__doc__,
+      long_description=long_description,
       platforms=["any"],
       classifiers=["Development Status :: 3 - Alpha",
                    "Intended Audience :: Developers",

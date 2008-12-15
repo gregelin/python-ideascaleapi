@@ -1,7 +1,41 @@
-
 ==================
 python-sunlightapi
 ==================
+
+Python library for interacting with the Sunlight Labs API.
+
+The Sunlight Labs API provides basic legislator information, district lookups,
+and experimental information on lobbyists.
+(http://services.sunlightlabs.com/api/)
+
+python-sunlightapi is a project of Sunlight Labs (c) 2008.  
+Written by James Turk <jturk@sunlightfoundation.com>.
+
+All code is under a BSD-style license, see LICENSE for details.
+
+Homepage: http://pypi.python.org/pypi/python-sunlightapi/
+
+Source: http://github.com/sunlightlabs/python-sunlightapi/
+
+
+Requirements
+============
+
+python >= 2.4
+
+simplejson >= 1.8 (not required with python 2.6, will use built in json module)
+
+
+Installation
+============
+To install run
+
+    ``python setup.py install``
+
+which will install the bindings into python's site-packages directory.
+
+Usage
+=====
 
 To initialize the api, all that is required is for it to be imported and for an
 API key to be defined.
@@ -17,8 +51,9 @@ And set your API key:
     
     >>> sunlight.apikey = 'a89f4a004698fa4fa65ada5f6891fa10'
 
+-------------------
 legislators methods
-===================
+-------------------
 
 The legislators namespace is comprised of several functions:
     * legislators.get        - get a single legislator
@@ -130,8 +165,9 @@ To get all legislators that represent the 27511 zipcode:
     Sen. Richard Burr (R-NC)
 
 
+-----------------
 districts methods
-=================
+-----------------
 
 The districts namespace is comprised of several functions:
     * districts.getDistrictsFromZip
@@ -174,9 +210,9 @@ To find out what district 61.13 N, 149.54 W falls within:
 
 This point is in fact in Anchorage, Alaska, so this is correct.
 
-
+-----------------
 lobbyists methods
-=================
+-----------------
 
 The lobbyists namespace contains:
     * lobbyists.getFiling

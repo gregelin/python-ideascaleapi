@@ -1,5 +1,5 @@
 import doctest
 
-print 'Before testing be sure to set your key in sunlightapi.txt..\n\n'
+print 'Before testing be sure to set your key in README.txt..\n\n'
 
-doctest.testfile('sunlightapi.rst', verbose=True)
+doctest.testfile('README.rst')
