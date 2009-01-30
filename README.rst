@@ -49,7 +49,7 @@ Import ``sunlight`` from ``sunlightapi``:
     
 And set your API key:
     
-    >>> sunlight.apikey = 'a89f4a004698fa4fa65ada5f6891fa10'
+    >>> sunlight.apikey = 'sunlight9'
 
 -------------------
 legislators methods
@@ -109,12 +109,9 @@ possible to do a more complex query, for instance
 
     >>> for leg in sunlight.legislators.getList(state='NY', party='R'):
     ...     print leg
-    Rep. Vito Fossella (R-NY)
     Rep. Pete King (R-NY)
-    Rep. Randy Kuhl (R-NY)
+    Rep. Christopher Lee (R-NY)
     Rep. John McHugh (R-NY)
-    Rep. Thomas Reynolds (R-NY)
-    Rep. Jim Walsh (R-NY)
 
 
 **It is preferred that you do not call getList without parameters as it will
@@ -159,8 +156,8 @@ To get all legislators that represent the 27511 zipcode:
     
     >>> for legislator in sunlight.legislators.allForZip(27511):
     ...     print legislator
+    Sen. Kay Hagan (D-NC)
     Rep. David Price (D-NC)
-    Sen. Elizabeth Dole (R-NC)
     Rep. Brad Miller (D-NC)
     Sen. Richard Burr (R-NC)
 
@@ -265,6 +262,6 @@ search
 
 To use a fuzzy name-matching search to find lobbyists filings:
 
-    >>> for r in sunlight.lobbyists.search('Nosha Thrompson'):
+    >>> for r in sunlight.lobbyists.search('Nosha Thrompson', year=2008):
     ...     print r
     0.945396825397 NISHA THOMPSON (Sunlight Foundation)
