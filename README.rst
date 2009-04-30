@@ -206,6 +206,126 @@ To find out what district 61.13 N, 149.54 W falls within:
 
 This point is in fact in Anchorage, Alaska, so this is correct.
 
+
+-----------------
+committee methods
+-----------------
+
+The committee namespace contains:
+    * committee.getList
+    * committee.get
+    * committee.allForMember
+
+getList
+-------
+
+committee.getList gets all committees for a given chamber (House, Senate, or Joint).
+
+To see all joint committees for the current congress:
+    >>> for c in sunlight.committees.getList('Joint'):
+    ...     print c
+    Joint Economic Committee
+    Joint Committee on Printing
+    Joint Committee on Taxation
+    Joint Committee on the Library
+
+get
+---
+
+committee.get gets full details for a given committee, including membership and subcommittees.
+
+Example of getting details for a committee:
+
+    >>> com = sunlight.committees.get('HSAG')
+    >>> print com.name
+    House Committee on Agriculture
+    >>> for sc in com.subcommittees:
+    ...     print sc
+    Subcommittee on  Conservation, Credit, Energy, and Research
+    Subcommittee on Department Operations, Oversight, Nutrition and Forestry
+    Subcommittee on General Farm Commodities and Risk Management
+    Subcommittee on Horticulture and Organic Agriculture
+    Subcommittee on Livestock, Dairy, and Poultry 
+    Subcommittee on Rural Development, Biotechnology, Specialty Crops, and Foreign Agriculture
+    >>> for m in com.members:
+    ...     print m
+    Rep. Joe Baca (D-CA)
+    Rep. John Boccieri (D-OH)
+    Rep. Leonard Boswell (D-IA)
+    Rep. Bobby Bright (D-AL)
+    Rep. Dennis Cardoza (D-CA)
+    Rep. Bill Cassidy (R-LA)
+    Rep. Travis Childers (D-MS)
+    Rep. Mike Conaway (R-TX)
+    Rep. Jim Costa (D-CA)
+    Rep. Henry Cuellar (D-TX)
+    Rep. Kathy Dahlkemper (D-PA)
+    Rep. Brad Ellsworth (D-IN)
+    Rep. Jeff Fortenberry (R-NE)
+    Rep. Bob Goodlatte (R-VA)
+    Rep. Sam Graves (R-MO)
+    Rep. Debbie Halvorson (D-IL)
+    Rep. Stephanie Herseth Sandlin (D-SD)
+    Rep. Tim Holden (D-PA)
+    Rep. Tim Johnson (R-IL)
+    Rep. Steven Kagen (D-WI)
+    Rep. Steve King (R-IA)
+    Rep. Larry Kissell (D-NC)
+    Rep. Frank Kratovil (D-MD)
+    Rep. Bob Latta (R-OH)
+    Rep. Frank Lucas (R-OK)
+    Rep. Blaine Luetkemeyer (R-MO)
+    Rep. Cynthia Lummis (R-WY)
+    Rep. Betsy Markey (D-CO)
+    Rep. Jim Marshall (D-GA)
+    Rep. Eric Massa (D-NY)
+    Rep. Mike McIntyre (D-NC)
+    Rep. Walt Minnick (D-ID)
+    Rep. Jerry Moran (R-KS)
+    Rep. Randy Neugebauer (R-TX)
+    Rep. Collin Peterson (D-MN)
+    Rep. Earl Pomeroy (D-ND)
+    Rep. Phil Roe (R-TN)
+    Rep. Mike Rogers (R-AL)
+    Rep. Mark Schauer (D-MI)
+    Rep. Jean Schmidt (R-OH)
+    Rep. Kurt Schrader (D-OR)
+    Rep. David Scott (D-GA)
+    Rep. Adrian Smith (R-NE)
+    Rep. G.T. Thompson (R-PA)
+    Rep. Tim Walz (D-MN)
+
+allForLegislator
+----------------
+
+All for legislator shows all of a legislator's committee and subcommittee memberships.
+
+*note that the subcommittees included are only the subcommittees that the member has a seat on*
+
+Showing all of a legislators committees and subcommittees:
+    >>> for com in sunlight.committees.allForLegislator('S000148'):
+    ...    print com
+    ...    for sc in com.subcommittees:
+    ...        print '  ',sc
+    Senate Committee on Rules and Administration
+    Senate Committee on Finance
+       Subcommittee on International Trade and Global Competitiveness
+       Subcommittee on Social Security, Pensions and Family Policy
+       Subcommittee on Taxation, IRS Oversight, and Long-term Growth
+    Joint Committee on the Library
+    Joint Economic Committee
+    Senate Commmittee on the Judiciary
+       Subcommittee on Administrative Oversight and the Courts
+       Subcommittee on Antitrust, Competition Policy and Consumer Rights
+       Subcommittee on Crime and Drugs
+       Subcommittee on Immigration, Refugees and Border Security
+       Subcommittee on Terrorism and Homeland Security
+    Joint Committee on Printing
+    Senate Committee on Banking, Housing, and Urban Affairs
+       Subcommittee on Securities, Insurance, and Investment
+       Subcommittee on Financial Institutions
+       Subcommittee on Housing, Transportation, and Community Development
+
 -----------------
 lobbyists methods
 -----------------

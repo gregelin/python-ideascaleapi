@@ -5,7 +5,7 @@
 """
 
 __author__ = "James Turk (jturk@sunlightfoundation.com)"
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 __copyright__ = "Copyright (c) 2009 Sunlight Labs"
 __license__ = "BSD"
 
@@ -39,6 +39,15 @@ class LegislatorSearchResult(SunlightApiObject):
 
     def __str__(self):
         return '%s %s' % (self.score, self.legislator)
+
+class Committee(SunlightApiObject):
+    def __init__(self, d):
+        self.__dict__ = d
+        self.subcommittees = [Committee(sc['committee']) for sc in getattr(self, 'subcommittees', [])]
+        self.members = [Legislator(m['legislator']) for m in getattr(self, 'members', [])]
+
+    def __str__(self):
+        return '%s' % (self.name)
 
 class District(SunlightApiObject):
     def __str__(self):
@@ -113,6 +122,23 @@ class sunlight(object):
         def allForZip(zipcode):
             results = sunlight._apicall('legislators.allForZip', {'zip':zipcode})
             return [Legislator(l['legislator']) for l in results['legislators']]
+
+    class committees(object):
+        @staticmethod
+        def get(committee_id):
+            results = sunlight._apicall('committees.get', {'id':committee_id})
+            return Committee(results['committee'])
+
+        @staticmethod
+        def getList(chamber):
+            results = sunlight._apicall('committees.getList', {'chamber':chamber})
+            return [Committee(c['committee']) for c in results['committees']]
+
+        @staticmethod
+        def allForLegislator(bioguide_id):
+            results = sunlight._apicall('committees.allForLegislator',
+                                        {'bioguide_id': bioguide_id})
+            return [Committee(c['committee']) for c in results['committees']]
 
     class districts(object):
         @staticmethod
