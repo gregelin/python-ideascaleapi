@@ -113,8 +113,10 @@ class sunlight(object):
             return [Legislator(l['legislator']) for l in results['legislators']]
 
         @staticmethod
-        def search(name, threshold=0.9):
+        def search(name, threshold=0.9, all_legislators=False):
             params =  {'name':name, 'threshold': threshold}
+            if all_legislators:
+                params['all_legislators'] = 1
             results = sunlight._apicall('legislators.search', params)['results']
             return [LegislatorSearchResult(r['result']) for r in results]
 

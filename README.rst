@@ -130,6 +130,13 @@ initials and minor misspellings.  The return is a set of results that include
 legislator records as well as certainity scores between 0 and 1 (where 1 is
 most certain).
 
+Search takes two optional parameters
+
+``threshold``
+    the minimum score you want to return, the default is 0.8 and you should rarely go lower than 0.7.
+``all_legislators``
+    if True will search legislators in the API that are no longer in office (default is False)
+
 An example usage of search is as follows:
 
     >>> for r in sunlight.legislators.search('Diane Finestine'):
