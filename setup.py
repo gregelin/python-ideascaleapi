@@ -1,17 +1,17 @@
 from distutils.core import setup
-from sunlightapi import __version__,__license__,__doc__
+from ideascaleapi import __version__,__license__,__doc__
 
 license_text = open('LICENSE').read()
 long_description = open('README.rst').read()
 
-setup(name="python-sunlightapi",
+setup(name="python-ideascaleapi",
       version=__version__,
-      py_modules=["sunlightapi"],
-      description="Libraries for interacting with the Sunlight Labs API",
-      author="James Turk",
-      author_email = "jturk@sunlightfoundation.com",
+      py_modules=["ideascaleapi"],
+      description="Libraries for interacting with the Ideascale API",
+      author="Greg Elin (forking James Turk)",
+      author_email = "greg@fotonotes.net",
       license=license_text,
-      url="http://github.com/sunlightlabs/python-sunlightapi/",
+      url="http://github.com/gregelin/python-ideascaleapi/tree/master",
       long_description=long_description,
       platforms=["any"],
       classifiers=["Development Status :: 3 - Alpha",
