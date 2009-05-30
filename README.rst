@@ -2,20 +2,24 @@
 python-sunlightapi
 ==================
 
-Python library for interacting with the Sunlight Labs API.
+Python library for interacting with the IdeaScale API.
+Based on Python library for interacting with Sunlight Labs API.
 
-The Sunlight Labs API provides basic legislator information, district lookups,
-and experimental information on lobbyists.
-(http://services.sunlightlabs.com/api/)
+The IdeaScale API provides ability to extract information from IdeaScale discussions.
+IdeaScale offers a RESTful and SOAP API. This library is for the RESTful API.
 
-python-sunlightapi is a project of Sunlight Labs (c) 2008.  
+(http://opengov.ideascale.com/akira/ideascaleStatic.do?mode=api)
+
+python-ideascale is a project of Greg Elin <greg@fotonotes.net>
+
+It is based on python-sunlightlabs project of Sunlight Labs (c) 2008.  
 Written by James Turk <jturk@sunlightfoundation.com>.
 
 All code is under a BSD-style license, see LICENSE for details.
 
-Homepage: http://pypi.python.org/pypi/python-sunlightapi/
+Homepage: http://pypi.python.org/pypi/python-ideascaleapi/
 
-Source: http://github.com/sunlightlabs/python-sunlightapi/
+Source: http://github.com/sunlightlabs/python-ideascaleapi/
 
 
 Requirements
@@ -40,13 +44,25 @@ Usage
 To initialize the api, all that is required is for it to be imported and for an
 API key to be defined.
 
-(If you do not have an API key visit http://services.sunlightlabs.com/api/ to
+(If you do not have an API key visit http://opengov.ideascale.com/akira/ideascaleStatic.do?mode=api to
 register for one.)
 
-Import ``sunlight`` from ``sunlightapi``:
+Import ``ideascale`` from ``ideascaleapi``:
     
-    >>> from sunlightapi import sunlight, SunlightApiError
+    >>> from ideascale import ideascale, IdeaScaleApiError
     
+
+
+***************************
+
+THIS DOCUMENTATION UPDATE IS IN PROGRESS
+
+
+****************************
+
+
+
+
 And set your API key:
     
     >>> sunlight.apikey = 'sunlight-api-key'
